@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="./js/index.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>App 3</title>
+</head>
+<body>
+    <div>
+        <!--Expense-->
+        <div class = "container"> 
+            <div class="expense-container">
+                <form id="expenseForm"> 
+                    <h1>Expense</h1>  
+                    <input type="text" id="exname" name="ename" placeholder="Enter expense name"></input required> <br>
+                    <input type="number" id="amount" name="amount" placeholder="Enter Amount" required> </input> <br>
+                    <input type="date" id="date" name="date" value="dd-mm-yy" required> </input> <br>
+                    <select id ="category" name="category">
+                        <option  selected ="selected" value="food">Food</option>
+                        <option value="transport">Transport</option>
+                        <option value="addNew">Add new category...</option>
+                    </select>
+                    <input type="text" id="newCategory" name="newCategory" style="display: none" placeholder="New category name"> </input> <br>
+                    <input type="submit" name="submit" value="add" style="display: none" id="addCategory"> </input> <br>
+                    <label for = "submit">
+                        <input type="submit" name="submit" value="submit"> </input> <br>
+                    </label>
+                </form>
+            </div>
+
+            <!--Budget-->
+            <div class="budget-container">
+                <form id="budgetForm"> 
+                    <h2>Budget</h2>  
+                    <input type="number" id="total-amount" placeholder="Enter amount" required>
+                    <select id="budgetCategory" name="budgetCategory" required>
+                        <option selected="selected" value="food">Food</option>
+                        <option value="transport">Transport</option>
+                    </select>
+                    <input type="submit" class="submit" value="Set Budget"></input>
+                    <p id="errorBudget" class ="hidden"> Budget category already exist</p>
+                </form>
+            </div>
+        </div>
+
+        <div class="output-container">
+      
+            <table>
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Total Budget</th>
+                    <th>Total Expense</th>
+                    <th>Balance</th>
+                  </tr>
+                </thead>
+                <tbody id="budgetContainer"> 
+                </tbody>
+            </table>
+        </div>
+
+        <div class="list">
+            <h3>Expense List</h3>
+            <input  id="chart" type="button" class="submit" value="Chart generator"></input>
+            <input  id="show" type="button" class="submit hidden" value="Show"></input>
+            <div id = "dateInput">
+                <input id= "startDate" class ="hidden" type="date"  name="date" value="dd-mm-yy" > </input> 
+                <input id ="endDate" type="date" class ="hidden" name="date" value="dd-mm-yy" > </input> <br>
+                <input  id="create" type="button" class ="hidden" value="Generate chart"></input>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                      <th>Expense name</th>
+                      <th>Amount</th>
+                      <th>Date</th>
+                      <th>Category</th>
+                      <th>Delete</th>
+                     </tr>
+                </thead>
+                <tbody id="expenseContainer"></tbody>
+            </table>
+        </div>
+        <canvas id="barChart" width="400" height="400"></canvas>
+
+    </div>
+</body>
+</html>

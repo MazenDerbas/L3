@@ -1,0 +1,178 @@
+@charset "UTF-8";
+
+html{
+    font-size: 20px;
+}
+
+body {
+    background-color: #f7f9fd;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+    font-family: sans-serif;
+
+}
+
+.container {
+  display:  grid;
+  grid-template-columns: 1fr 1fr;
+  width: 90%;
+  max-width: 43.75em;
+  margin: 1em auto;
+  gap: 5em;
+
+}
+
+h1,h2 {
+    margin-bottom: 10px; 
+    font-size: 20px;  
+}
+
+#expenseForm label{
+  
+}
+
+.budget-container input { 
+    
+    display: block;
+    margin-top: 20px;
+}
+
+.budget-container select { 
+    
+    display: block;
+    margin-top: 20px;
+}
+
+
+.container input {
+    display: block;
+    padding : 0.6em;
+    width: 100%;
+    padding: 0.6em 0.3em;
+    border: 1px solid #d0d0d0;
+    outline: none;
+    border-radius: 0.3em;
+    outline: none;
+    font-weight: 400;
+
+}
+
+.expense-container,
+.budget-container {
+    
+    background-color: #ffffff;
+    padding: 1.25em 0.9em;
+    border-radius: 0.3em;
+    box-shadow: 0 0.6em 1.2em rgba(28,0 , 80, 0.06);
+}
+
+.output-container {
+    display:  grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 1.25em;
+    max-width: 90%;
+    background-color: #587ef4; 
+    color: #ffffff;
+    border-radius: 0.3em;
+    margin: 1em auto;
+}
+
+.output-container th {
+    max-width: 100%;
+    border-bottom: 1px solid #ddd; 
+    padding-left: 4em; 
+    padding-right: 2em; 
+}
+
+
+
+#budgetContainer {
+
+}
+
+.output-container table {
+    border-collapse: collapse;
+    text-align: center;
+    margin-left: 2em;
+    
+    
+}
+
+#budgetContainer tr:first-child td {
+    padding-top: 20px; 
+    
+}
+
+#budgetContainer tr td {
+    padding-left: 20px;
+}
+
+#chart{
+   margin-left: 800px;
+   margin-bottom: 20px;
+   background-color: #4CAF50;
+   padding: 15px; 
+   color: #ffff;
+   border-radius: 0.5em;
+   margin-top: -40px;
+   
+}
+
+.list{
+    background-color: #ffffff;
+    padding: 1.25em 0.9em;
+   
+}
+
+.list th {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+.list th, .list td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+
+.list table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+.hidden {
+    display: none;
+}
+
+#dateInput input {
+    margin-bottom: 50px;
+    margin-left: 40px;
+}
+
+#create {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 0.5em;
+    padding: 15px;
+    
+}
+
+#show {
+background-color: #4CAF50;
+color: white;
+border-radius: 0.5em;
+padding: 15px;
+margin-left: 60em;
+    
+}
+
+#errorBudget{
+    color: red;
+
+}
+
+canvas {
+    padding-left: 200px;
+}
