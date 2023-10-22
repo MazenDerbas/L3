@@ -33,52 +33,49 @@ export class BudgetForm {
   registerEventHandlers () {
     this.#budgetForm.addEventListener('submit', (e) => {
       e.preventDefault()
-      this.createBudget()
+      this.#createBudget()
       this.displayBudget()
     })
   }
 
-  /**
-   * Creates a budget.
-   */
-  createBudget () {
+  #createBudget () {
     const amount = parseFloat(this.#budgetAmount.value)
     const category = this.#budgetCategory.value
-
-    if (!this.budgetExists(category)) {
+    if (isNaN(amount) || amount <= 0) {
+      throw new Error('Invalid amount. Please enter a positive number.')
+    }
+    if (!category) {
+      throw new Error('Invalid category. Category cannot be empty.')
+    }
+    if (!this.#isBudgetExists(category)) {
       this.#expenseTracker.addBudget(category, amount)
       this.#errorMessage.classList.add('hidden')
+      throw new Error('Budget for this category already exists.')
     } else {
       this.#errorMessage.classList.remove('hidden')
     }
   }
-
+  
   /**
-   * Desc.
    *
    * @param {string} category - The budget category to check.
    * @returns {boolean} true if budget exists, otherwise false
    */
-  budgetExists (category) {
+  #isBudgetExists (category) {
     const budgets = this.#expenseTracker.getBudgetList()
     return budgets.some(budget => budget.getCategory() === category)
   }
 
-  /**
-   * Clears the budget display.
-   */
-  clearBudget () {
+
+  #clearBudget () {
     this.#budgetContainer.innerHTML = ''
-  /**
-   *
-   */
   }
 
   /**
    * Renders the budget items.
    */
   displayBudget () {
-    this.clearBudget()
+    this.#clearBudget()
     const budgets = this.#expenseTracker.getBudgetList()
 
     budgets.forEach(budget => {

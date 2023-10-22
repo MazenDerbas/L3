@@ -28,15 +28,59 @@ export class ExpenseChart {
     this.#endDate = document.getElementById('endDate')
     this.#generateButton = document.getElementById('create')
     this.#showButton = document.getElementById('show')
-    this.hideElements()
-    this.showElements()
-    this.generateChartEvent()
+    this.#generateChartEvent()
+    this.#hideElements()
+    this.#showElements()
   }
+
+  /**
+  * Event to generate a bar chart.
+  */
+  #generateChartEvent () {
+    this.#generateButton.addEventListener('click', (e) => {
+      e.preventDefault()
+      this.#filterExpenses()
+    })
+  }
+
+    /**
+   * Filter expenses by date.
+   */
+  #filterExpenses () {
+    const sDate = this.#startDate.value
+    const eDate = this.#endDate.value
+    const interval = this.#expenseTracker.getExpensesByDateInterval(sDate, eDate)
+    this.#displayFilterdExpenses(interval)
+  }
+
+  /**
+   * Renders the filtered date.
+   *
+   * @param {object[]} interval - The expenses data for the selected interval.
+   */
+  #displayFilterdExpenses (interval) {
+    const dateChartDate = interval.map(expense => ({
+      label: expense.getName(),
+      value: expense.getAmount()
+    }))
+    this.#createChart(dateChartDate)
+  }
+
+   /**
+  * Generates a new chart in the DOM using the provided data.
+  *
+  * @param {object[]} dateChartData - Array of data for the chart,
+  */
+  #createChart (dateChartData) {
+    const dateChart = new Chart('barChart', dateChartData)
+    dateChart.drawBarChart()
+  }
+
 
   /**
    * Event to hide HTML elements.
    */
-  hideElements () {
+  #hideElements () {
     this.#chartButton.addEventListener('click', (e) => {
       e.preventDefault()
       this.#outputContainer.classList.add('hidden')
@@ -50,10 +94,10 @@ export class ExpenseChart {
     })
   }
 
-  /**
+    /**
    * Event to show HTML elements.
    */
-  showElements () {
+  #showElements () {
     this.#showButton.addEventListener('click', (e) => {
       e.preventDefault()
       this.#outputContainer.classList.remove('hidden')
@@ -65,48 +109,5 @@ export class ExpenseChart {
       this.#generateButton.classList.add('hidden')
       this.#showButton.classList.add('hidden')
     })
-  }
-
-  /**
-   * Event to generate a bar chart.
-   */
-  generateChartEvent () {
-    this.#generateButton.addEventListener('click', (e) => {
-      e.preventDefault()
-      this.filterExpenses()
-    })
-  }
-
-  /**
-   * Filter expenses by date.
-   */
-  filterExpenses () {
-    const sDate = this.#startDate.value
-    const eDate = this.#endDate.value
-    const interval = this.#expenseTracker.getExpensesByDateInterval(sDate, eDate)
-    this.displayFilterdExpenses(interval)
-  }
-
-  /**
-   * Renders the filtered date.
-   *
-   * @param {object[]} interval - The expenses data for the selected interval.
-   */
-  displayFilterdExpenses (interval) {
-    const dateChartDate = interval.map(expense => ({
-      label: expense.getName(),
-      value: expense.getAmount()
-    }))
-    this.createChart(dateChartDate)
-  }
-
-  /**
-   * Generates a new chart in the DOM using the provided data.
-   *
-   * @param {object[]} dateChartData - Array of data for the chart,
-   */
-  createChart (dateChartData) {
-    const dateChart = new Chart('barChart', dateChartData)
-    dateChart.drawBarChart()
-  }
+  } 
 }

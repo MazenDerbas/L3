@@ -23,35 +23,24 @@ export class ExpenseDisplay {
    * Displays the list from the ExpenseTracker.
    */
   displayExpenses () {
-    this.clearExpenses()
+    this.#clearExpenses()
     const expenses = this.#expenseTracker.getExpensList()
-    expenses.forEach(expense => this.displaySingleExpense(expense))
+    expenses.forEach(expense => this.#displaySingleExpense(expense))
   }
 
-  /**
-   * Clears all displayed expenses.
-   */
-  clearExpenses () {
+
+
+
+  #clearExpenses () {
     this.#expenseContainer.innerHTML = ''
   }
 
-  /**
-   * Creates and displays a single expense element.
-   *
-   * @param {object} expense .
-   */
-  displaySingleExpense (expense) {
-    const expenseDiv = this.createExpenseElement(expense)
+  #displaySingleExpense (expense) {
+    const expenseDiv = this.#createExpenseElement(expense)
     this.#expenseContainer.appendChild(expenseDiv)
   }
 
-  /**
-   * Creates an expense table row element.
-   *
-   * @param {object} expense -
-   * @returns {object} -
-   */
-  createExpenseElement (expense) {
+  #createExpenseElement (expense) {
     const expenseDiv = document.createElement('tr')
     expenseDiv.className = 'expense'
     expenseDiv.innerHTML = `
@@ -63,7 +52,7 @@ export class ExpenseDisplay {
   `
 
     // Add event listener for the delete button
-    this.addDeleteButtonEventListener(expenseDiv, expense)
+    this.#addDeleteButtonEventListener(expenseDiv, expense)
 
     return expenseDiv
   }
@@ -74,7 +63,7 @@ export class ExpenseDisplay {
    * @param {object} expenseElement -
    * @param {object} expense The expense data object
    */
-  addDeleteButtonEventListener (expenseElement, expense) {
+  #addDeleteButtonEventListener (expenseElement, expense) {
     const deleteButton = expenseElement.querySelector('button')
     deleteButton.addEventListener('click', () => {
       this.#expenseTracker.removeExpense(expense.getName())
