@@ -18,7 +18,7 @@ Managing expenses is a hard task for many people. The Expense Tracker applicatio
 ## Getting Started for End Users
 
 Welcome to ExpenseTracker - your personal assistant in managing expenses and budgeting. The application will help you add and manage expenses and budget using a user-friendly interface.
-You can use this application by visiting the following webside [Netlify App Configuration](https://app.netlify.com/sites/l2expensetracker/configuration/general)
+You can use this application by visiting the following webside [Expense Tracker app](https://l2expensetracker.netlify.app)
 You can also use this application is designed in your local environment, you need to clone the repository and lunch the application using localhost ((usually http://localhost:3000 or a similar URL).)
 
 Output exemple 
