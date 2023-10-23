@@ -38,7 +38,7 @@ I worked on structuring my code according to the guidelines in Chapter 5. I trie
 
 ## Chapter 6: Objects and Data Structures
 
-After reading Chapter 6 in "Clean Code," I learned a lot about keeping things hidden in my code. So, in my project, I worked with classes like "BudgetForm" and "ExpenseDisplay." I made sure things inside them, like "#expenseTracker" and "#budgetForm," were private. This way, they're kind of locked away and safe, just like the chapter said they should be. This encapsulation aligns with the idea presented in the chapter that objects hide their data and expose functions that opeate on that data.
+After reading Chapter 6 in "Clean Code," I learned a lot about keeping things hidden in my code. So, in my project. I made sure things inside them, like "#expenseTracker" and "#budgetForm," were private. This way, they're kind of locked away and safe, just like the chapter said they should be. This encapsulation aligns with the idea presented in the chapter that objects hide their data and expose functions that opeate on that data.
 
 I tried to hold the encapsulation even im the module and follow the law of demeter. I kept all the important info private and made special "getter" and "setter" functions to use the info when I need to. This way, everything stays organized and protected, and I can control how everything is used or changed.
 
@@ -72,7 +72,7 @@ In the module ExpenseTracker I used automatic tests for every function. I did no
 
 The unit testing held me make sure my code is doing what it should also they help me changing some parts of my code which hade bug or minor mistake.
 
-In the application I implemented manual testing The manual tests were straightforward and uncomplicated. I tried to follow the book rules even here by making the tests easy to read and use.
+In the application I implemented manual testing. The manual tests were straightforward and uncomplicated. I tried to follow the book rules even here by making the tests easy to read and use.
 ![Unit Tests](/img/10.png)
 
 
@@ -85,6 +85,6 @@ My code the application obey the rule single responsibility so each class do jus
 
 ## Chapter 11: Systems
 
-I made sure that different parts of my program are created separately to apply. Each class, such as ExpenseForm, ExpenseDisplay, and ExpenseChart, has a specific job, making it easier to understand the main logic. I tried also to separated the construction of the classes form its use, till exemple I create instances of the classes ExpenseTracker and ExpenseForm in DOMContentLoaded event listener. I also tried to apply the dependency Injection by pasing expenseTracker as a constructor arguemnt. ä
+I made sure that different parts of my program are created separately to apply. Each class, such as ExpenseForm, ExpenseDisplay, and ExpenseChart, has a specific job, making it easier to understand the main logic. I tried also to separated the construction of the classes form its use, till exemple I create instances of the classes ExpenseTracker and ExpenseForm in DOMContentLoaded event listener. I also tried to apply the dependency Injection by pasing expenseTracker as a constructor arguemnt. 
 ![Systems](/img/14.png)
 ![Systems](/img/15.png)

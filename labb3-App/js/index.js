@@ -7,7 +7,7 @@ import { BudgetDisplay } from './BudgetDisplay.js'
 /**
  *
  */
-function initApp () {
+export function initApp () {
   document.addEventListener('DOMContentLoaded', () => {
     const expenseTracker = new ExpenseTracker()
     const budgetDisplay = new BudgetDisplay(expenseTracker)
