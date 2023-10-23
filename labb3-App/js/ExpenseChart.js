@@ -1,4 +1,4 @@
-import { Chart } from './Chart.js'
+import { Chart } from '../../node_modules/@mazenderbas/l2/src/javascript/Chart.js'
 
 /**
  *

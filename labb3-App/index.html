@@ -14,18 +14,18 @@
             <div class="expense-container">
                 <form id="expenseForm"> 
                     <h1>Expense</h1>  
-                    <input type="text" id="exname" name="ename" placeholder="Enter expense name"></input required> <br>
-                    <input type="number" id="amount" name="amount" placeholder="Enter Amount" required> </input> <br>
-                    <input type="date" id="date" name="date" value="dd-mm-yy" required> </input> <br>
+                    <input type="text" id="exname" name="ename" placeholder="Enter expense name" required> <br>
+                    <input type="number" id="amount" name="amount" placeholder="Enter Amount" required>  <br>
+                    <input type="date" id="date" name="date" value="dd-mm-yy" required> <br>
                     <select id ="category" name="category">
                         <option  selected ="selected" value="food">Food</option>
                         <option value="transport">Transport</option>
                         <option value="addNew">Add new category...</option>
                     </select>
-                    <input type="text" id="newCategory" name="newCategory" style="display: none" placeholder="New category name"> </input> <br>
-                    <input type="submit" name="submit" value="add" style="display: none" id="addCategory"> </input> <br>
+                    <input type="text" id="newCategory" name="newCategory" style="display: none" placeholder="New category name"> <br>
+                    <input type="submit" name="submit" value="add" style="display: none" id="addCategory"> <br>
                     <label for = "submit">
-                        <input type="submit" name="submit" value="submit"> </input> <br>
+                        <input type="submit" name="submit" value="submit"> <br>
                     </label>
                 </form>
             </div>
@@ -39,7 +39,7 @@
                         <option selected="selected" value="food">Food</option>
                         <option value="transport">Transport</option>
                     </select>
-                    <input type="submit" class="submit" value="Set Budget"></input>
+                    <input type="submit" class="submit" value="Set Budget">
                     <p id="errorBudget" class ="hidden"> Budget category already exist</p>
                 </form>
             </div>
@@ -63,12 +63,12 @@
 
         <div class="list">
             <h3>Expense List</h3>
-            <input  id="chart" type="button" class="submit" value="Chart generator"></input>
-            <input  id="show" type="button" class="submit hidden" value="Show"></input>
+            <input  id="chart" type="button" class="submit" value="Chart generator">
+            <input  id="show" type="button" class="submit hidden" value="Show">
             <div id = "dateInput">
-                <input id= "startDate" class ="hidden" type="date"  name="date" value="dd-mm-yy" > </input> 
-                <input id ="endDate" type="date" class ="hidden" name="date" value="dd-mm-yy" > </input> <br>
-                <input  id="create" type="button" class ="hidden" value="Generate chart"></input>
+                <input id= "startDate" class ="hidden" type="date"  name="date" value="dd-mm-yy" > 
+                <input id ="endDate" type="date" class ="hidden" name="date" value="dd-mm-yy" >  <br>
+                <input  id="create" type="button" class ="hidden" value="Generate chart">
             </div>
 
             <table>

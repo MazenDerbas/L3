@@ -2,7 +2,7 @@
   "name": "l3",
   "version": "1.0.0",
   "description": "# Expense Tracker application",
-  "main": "labb3-App/js/index.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -34,6 +34,6 @@
     "vite": "^3.1.8"
   },
   "dependencies": {
-    "@mazenderbas/l2": "^1.0.2"
+    "@mazenderbas/l2": "^1.0.3"
   }
 }
