@@ -21,8 +21,9 @@ export class ExpenseForm {
    *
    * @param {expenseTracker} expenseTracker - The expense tracker insatce.
    */
-  constructor (expenseTracker) {
+  constructor (expenseTracker, budgetDisplay) {
     this.#expenseTracker = expenseTracker
+    this.#budgetDisplay = budgetDisplay
     this.#expenseForm = document.getElementById('expenseForm')
     this.#expenseName = document.getElementById('exname')
     this.#amount = document.getElementById('amount')
@@ -30,8 +31,8 @@ export class ExpenseForm {
     this.#categorySelect = document.getElementById('category')
     this.#newCategoryInput = document.getElementById('newCategory')
     this.#addCategoryButton = document.getElementById('addCategory')
-    this.#expenseDisplay = new ExpenseDisplay(expenseTracker)
-    this.#budgetDisplay = new BudgetForm(expenseTracker)
+    this.#expenseDisplay = new ExpenseDisplay(expenseTracker,budgetDisplay )
+    
   }
 
 

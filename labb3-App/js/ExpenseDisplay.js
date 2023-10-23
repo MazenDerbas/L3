@@ -13,10 +13,10 @@ export class ExpenseDisplay {
    *
    * @param {expenseTracker} expenseTracker - The expense tracker insatce.
    */
-  constructor (expenseTracker) {
+  constructor (expenseTracker, budgetDisplay) {
     this.#expenseTracker = expenseTracker
     this.#expenseContainer = document.getElementById('expenseContainer')
-    this.#budgetDisplay = new BudgetForm(expenseTracker)
+    this.#budgetDisplay = budgetDisplay
   }
 
   displayExpenses () {

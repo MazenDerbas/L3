@@ -198,9 +198,6 @@ export class ExpenseTracker {
     let budget
     let remain = 0
 
-    if (!this.#findCategory(category)) {
-      throw new Error(category + ' does not exist in the category list')
-    }
 
     for (const b of this.getBudgetList()) {
       if (b.getCategory() === category) {
