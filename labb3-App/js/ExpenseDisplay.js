@@ -19,17 +19,11 @@ export class ExpenseDisplay {
     this.#budgetDisplay = new BudgetForm(expenseTracker)
   }
 
-  /**
-   * Displays the list from the ExpenseTracker.
-   */
   displayExpenses () {
     this.#clearExpenses()
     const expenses = this.#expenseTracker.getExpensList()
     expenses.forEach(expense => this.#displaySingleExpense(expense))
   }
-
-
-
 
   #clearExpenses () {
     this.#expenseContainer.innerHTML = ''

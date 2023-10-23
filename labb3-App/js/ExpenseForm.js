@@ -55,31 +55,51 @@ export class ExpenseForm {
   }
 
   #createExpense () {
-    const expenseValue = this.#expenseName.value
-    const amountValue = this.#amount.value
-    const dateValue = this.#date.value
-    let categoryValue = this.#categorySelect.value
+    try {
+      const expenseNameValue = this.#expenseName.value
+      const amountValue = this.#amount.value
+      const dateValue = this.#date.value
+      let categoryValue = this.#categorySelect.value
 
-    if (!expenseValue) {
-      throw new Error('Expense name cannot be empty.')
+      this.#validateExpenseNameInput(expenseNameValue)
+      this.#validateExpenseAmountInput(amountValue)
+      this.#validateDateinput(dateValue)
+      this.#validateCategoryinput(categoryValue)
+      
+      if (categoryValue === 'addNew') {
+        categoryValue = this.#newCategoryInput.value
+        this.#createCategory(categoryValue)
+      }
+
+      this.#expenseTracker.addExpense(expenseNameValue, parseFloat(amountValue), dateValue, categoryValue)
+      this.#expenseForm.reset()
+    } catch (error) {
+
     }
+  }
 
-    if (isNaN(amountValue) || amountValue <= 0) {
+  #validateExpenseNameInput(name) {
+    if (!name)
+    throw new Error('Expense name cannot be empty.')
+  }
+
+  #validateExpenseAmountInput(amount) {
+    if (isNaN(amount) || amount <= 0) {
       throw new Error('Invalid amount. Please enter a positive number.')
     }
+  }
 
+  #validateCategoryinput(category) {
+    if (!category) {
+      throw new Error('Invalid category. Category cannot be empty.')
+    }
+  }
+
+  #validateDateinput(dateValue) {
     if (!dateValue) {
       throw new Error('Please select a valid date.')
     }
-
-    if (categoryValue === 'addNew') {
-      categoryValue = this.#newCategoryInput.value
-      this.#createCategory(categoryValue)
-    }
-
-    this.#expenseTracker.addExpense(expenseValue, parseFloat(amountValue), dateValue, categoryValue)
-    this.#expenseForm.reset()
-  }
+  }  
 
   #createCategory (categoryValue) {
     this.#addOptionToDropDown(this.#categorySelect, categoryValue)

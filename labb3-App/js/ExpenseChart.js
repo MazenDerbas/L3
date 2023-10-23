@@ -43,20 +43,16 @@ export class ExpenseChart {
     })
   }
 
-    /**
-   * Filter expenses by date.
-   */
   #filterExpenses () {
-    const sDate = this.#startDate.value
-    const eDate = this.#endDate.value
-    const interval = this.#expenseTracker.getExpensesByDateInterval(sDate, eDate)
+    const startDate = this.#startDate.value
+    const endDate = this.#endDate.value
+    const interval = this.#expenseTracker.getExpensesByDateInterval(startDate, endDate)
     this.#displayFilterdExpenses(interval)
   }
 
   /**
    * Renders the filtered date.
    *
-   * @param {object[]} interval - The expenses data for the selected interval.
    */
   #displayFilterdExpenses (interval) {
     const dateChartDate = interval.map(expense => ({
@@ -69,7 +65,6 @@ export class ExpenseChart {
    /**
   * Generates a new chart in the DOM using the provided data.
   *
-  * @param {object[]} dateChartData - Array of data for the chart,
   */
   #createChart (dateChartData) {
     const dateChart = new Chart('barChart', dateChartData)
