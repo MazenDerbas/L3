@@ -38,11 +38,11 @@ export class BudgetForm {
     try {
       const amount = parseFloat(this.#budgetAmount.value)
       const category = this.#budgetCategory.value
-      
+
       this.#validateBudgetInput(amount)
       this.#validateCategoryinput(category)
       this.#validateBudgetExist(category , amount)
-    
+
       this.#errorMessage.classList.add('hidden')
     } catch (error) {
       this.#errorMessage.classList.remove('hidden')
@@ -55,7 +55,7 @@ export class BudgetForm {
     }
   }
 
-  #validateCategoryinput(category){
+  #validateCategoryinput(category) {
     if (!category) {
       throw new Error('Invalid category. Category cannot be empty.')
     }
@@ -64,7 +64,6 @@ export class BudgetForm {
   #validateBudgetExist(category, amount) {
     if (this.#isBudgetExists(category)) {
       throw new Error('Budget for this category already exists.')
-      
     } else {
       this.#expenseTracker.addBudget(category, amount)
     }

@@ -1,4 +1,5 @@
-import { Chart } from '../../src/javascript/Chart.js'
+import { Chart } from './Chart.js'
+
 /**
  *
  */
@@ -34,8 +35,8 @@ export class ExpenseChart {
   }
 
   /**
-  * Event to generate a bar chart.
-  */
+   * Event to generate a bar chart.
+   */
   #generateChartEvent () {
     this.#generateButton.addEventListener('click', (e) => {
       e.preventDefault()
@@ -43,6 +44,9 @@ export class ExpenseChart {
     })
   }
 
+  /**
+   *
+   */
   #filterExpenses () {
     const startDate = this.#startDate.value
     const endDate = this.#endDate.value
@@ -53,6 +57,7 @@ export class ExpenseChart {
   /**
    * Renders the filtered date.
    *
+   * @param interval
    */
   #displayFilterdExpenses (interval) {
     const dateChartDate = interval.map(expense => ({
@@ -62,15 +67,15 @@ export class ExpenseChart {
     this.#createChart(dateChartDate)
   }
 
-   /**
-  * Generates a new chart in the DOM using the provided data.
-  *
-  */
+  /**
+   * Generates a new chart in the DOM using the provided data.
+   *
+   * @param dateChartData
+   */
   #createChart (dateChartData) {
     const dateChart = new Chart('barChart', dateChartData)
     dateChart.drawBarChart()
   }
-
 
   /**
    * Event to hide HTML elements.
@@ -89,7 +94,7 @@ export class ExpenseChart {
     })
   }
 
-    /**
+  /**
    * Event to show HTML elements.
    */
   #showElements () {
@@ -104,5 +109,5 @@ export class ExpenseChart {
       this.#generateButton.classList.add('hidden')
       this.#showButton.classList.add('hidden')
     })
-  } 
+  }
 }
